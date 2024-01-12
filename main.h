@@ -44,7 +44,7 @@ void add(stack_t **stack, unsigned int line_number);
 int execute(FILE *fd, stack_t **stack);
 int convert(char *op);
 void delete(stack_t *stack);
-void get_op(char *op, stack_t **stack, unsigned int line_number);
+int exec_others(stack_t **stack, char *op, unsigned int line_number);
 int main(int argc, char *argv[]);
 void nop(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);

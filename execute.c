@@ -27,7 +27,7 @@ int execute(FILE *fd, stack_t **stack)
 		}
 		else
 		{
-			i = get_op(stack, tok, line_count);
+			i = exec_others(stack, tok, line_count);
 		}
 	}
 	free(buf);
