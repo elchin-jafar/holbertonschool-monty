@@ -7,7 +7,7 @@
  */
 void get_op(char *opcode, stack_t **stack, unsigned int line_number)
 {
-	int i;
+	int i = 0;
 	instruction_t command[] =
 	{
 		{"push", push},
@@ -19,16 +19,18 @@ void get_op(char *opcode, stack_t **stack, unsigned int line_number)
 		{"nop", nop},
 		{NULL, NULL},
 	};
-	for (i = 0; command[i].opcode != NULL; i++)
+	while (command[i].opcode != NULL)
 	{
 		if (!strcmp(command[i].opcode, opcodes))
 		{
 			command[i].f(stack, line_number);
-			return;
+			break;
 		}
+		i++;
 	}
-	dprintf(STDOUT_FILENO,
-		"L%u: unknown instruction %s\n",
-		line_number, op);
-	exit(EXIT_FAILURE);
+	if (command[i].opcode == NULL)
+	{
+		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", line_number, op);
+		return (1);
+	}
 }
