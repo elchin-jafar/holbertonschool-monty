@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 /**
  * pint - print value on top of `stack', or exit if stack is empty
  * @stack: double pointer to head of stack
