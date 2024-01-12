@@ -35,5 +35,6 @@ void free_stack(char **argv, int status);
 void free_lineptr(int status, void *arg);
 stack_t *add_node(stack_t **stack, const int n);
 int main(int argc, char *argv[]);
+void fs_close(int status, void *arg);
 
 #endif
