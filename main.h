@@ -40,15 +40,16 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void get_op(char *opcode, stack_t **stack, unsigned int line_number);
-void free_stack(char **argv, int status);
-void free_lineptr(int status, void *arg);
 void add(stack_t **stack, unsigned int line_number);
+int execute(FILE *fd, stack_t **stack);
+int convert(char *op);
+void delete(stack_t *stack);
+void get_op(char *opcode, stack_t **stack, unsigned int line_number);
 int main(int argc, char *argv[]);
-void fs_close(int status, void *arg);
-void pint(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 int push(stack_t **stack, char *op, unsigned int line_number);
-static int check_for_digit(char *arg);
-
+void swap(stack_t **stack, unsigned int line_number);
 #endif
