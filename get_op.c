@@ -10,19 +10,25 @@ void get_op(char *opcode, stack_t **stack, unsigned int line_number)
 	int i;
 	instruction_t command[] =
 	{
-		{"push", push};
-		{"pall", pall};
-		{"pint", pint};
-		{"pop", pop};
-		{"swap", swap};
-		{"add", add};
-		{"nop", nop};
-		{NULL, NULL};
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
+		{NULL, NULL},
 	};
 	for (i = 0; command[i].opcode != NULL; i++)
 	{
 		if (!strcmp(command[i].opcode, opcodes))
-			break;
+		{
+			command[i].f(stack, line_number);
+			return;
+		}
 	}
-	return (command[i].f);
+	dprintf(STDOUT_FILENO,
+		"L%u: unknown instruction %s\n",
+		line_number, op);
+	exit(EXIT_FAILURE);
 }
