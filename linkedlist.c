@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * add_node - add a new node to a circular linked list
  * @stack: double pointer to the beginning of the circular linked list
