@@ -31,5 +31,9 @@ typedef struct instruction_s
 } instruction_t;
 
 void get_op(char *opcode, stack_t **stack, unsigned int line_number);
+void free_stack(char **argv, int status);
+void free_lineptr(int status, void *arg);
+stack_t *add_node(stack_t **stack, const int n);
+int main(int argc, char *argv[]);
 
 #endif
