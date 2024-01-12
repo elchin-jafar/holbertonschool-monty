@@ -1,8 +1,4 @@
 #include "main.h"
-
-/* global struct to hold flag for queue and stack length */
-var_t var;
-
 /**
  * main - Monty bytecode interpreter
  * @argc: number of arguments passed
@@ -13,10 +9,10 @@ var_t var;
 int main(int argc, char *argv[])
 {
 	stack_t *stack = NULL;
-	unsigned int line_number = 0;
+	/*unsigned int line_number = 0;*/
 	FILE *fs = NULL;
-	char *lineptr = NULL, *op = NULL;
-	size_t n = 0;
+	/*char *lineptr = NULL, *op = NULL;*/
+	int n = 0;
 
 	var.queue = 0;
 	var.stack_len = 0;
