@@ -1,11 +1,12 @@
 #include "main.h"
 /**
  * get_op - gets appropiate function for given opcodes
- *
- * @opcodes: opcode
+ * @line_number: Something more useful
+ * @op: opcode
+ * @stack: Something more useful
  * Return: appropiate function
  */
-void get_op(char *opcode, stack_t **stack, unsigned int line_number)
+void get_op(char *op, stack_t **stack, unsigned int line_number)
 {
 	int i = 0;
 	instruction_t command[] =
@@ -21,7 +22,7 @@ void get_op(char *opcode, stack_t **stack, unsigned int line_number)
 	};
 	while (command[i].opcode != NULL)
 	{
-		if (!strcmp(command[i].opcode, opcodes))
+		if (!strcmp(command[i].opcode, op))
 		{
 			command[i].f(stack, line_number);
 			break;
@@ -33,4 +34,5 @@ void get_op(char *opcode, stack_t **stack, unsigned int line_number)
 		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", line_number, op);
 		return (1);
 	}
+	return (0);
 }
