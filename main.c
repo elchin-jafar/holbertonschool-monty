@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	i = execute(fd, &stack);
 	delete(stack);
 	fclose(fd);
-	if (i == 2)
+	if (i == 1)
 	{
 		exit(EXIT_FAILURE);
 	}
